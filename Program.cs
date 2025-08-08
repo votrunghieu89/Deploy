@@ -15,6 +15,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ======= Cấu hình để app listen đúng port Render cung cấp =======
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 // === CẤU HÌNH JWT AUTHENTICATION ===
 builder.Services.AddAuthentication(options =>
 {
@@ -62,8 +66,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Sử dụng PostgreSQL
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -73,7 +76,7 @@ builder.Services
     .AddAuthorization() // 👈 thêm dòng này để dùng [Authorize]
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()
-    .BindRuntimeType<DateTime, DateTimeType>(); ;
+    .BindRuntimeType<DateTime, DateTimeType>();
 
 var app = builder.Build();
 
