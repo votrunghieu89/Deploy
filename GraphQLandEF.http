@@ -1,0 +1,6 @@
+@GraphQLandEF_HostAddress = http://localhost:5250
+
+GET {{GraphQLandEF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
