@@ -1,0 +1,13 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #ebf8ff, #ebf4ff);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 440px;
+}
