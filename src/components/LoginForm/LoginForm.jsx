@@ -12,7 +12,7 @@ const LoginForm = ({ onRegister }) => {
     setError('');
 
     try {
-      const response = await fetch('https://localhost:7000/graphql', {
+      const response = await fetch('/api/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
