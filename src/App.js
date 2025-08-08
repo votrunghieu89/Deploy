@@ -49,7 +49,7 @@ function App() {
         alert('Tên đăng nhập hoặc mật khẩu không đúng!');
         return;
       }
-
+      console.log('Status:', response.status);
       const { accessToken, email } = result.data.login;
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('userEmail', email);

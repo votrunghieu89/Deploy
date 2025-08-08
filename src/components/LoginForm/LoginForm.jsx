@@ -37,7 +37,7 @@ const LoginForm = ({ onRegister }) => {
         setError('Tên đăng nhập hoặc mật khẩu không đúng!');
         return;
       }
-
+      console.log('Status:', response.status);
       const { accessToken } = result.data.login;
       localStorage.setItem('accessToken', accessToken);
       window.location.href = '/todopage'; // Redirect
